@@ -1,0 +1,1526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MONSTEL | Strategic Growth & Regional Expansion Plan</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    
+    <style>
+        :root {
+            /* Color System */
+            --primary-fuchsia: #D81E5B;
+            --primary-orange: #FF6B35;
+            --bg-dark: #0A0A0A;
+            --bg-darker: #050505;
+            --text-light: #F9F9F9;
+            --text-gray: #B0B0B0;
+            --glass-bg: rgba(15, 15, 18, 0.78);
+            --glass-border: rgba(255, 255, 255, 0.12);
+            --warning: #FFC107;
+            
+            /* Typography */
+            --font-heading: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            /* Spacing & Radii */
+            --radius-lg: 24px;
+            --radius-md: 16px;
+            --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            max-width: 100vw;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background-color: transparent !important;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Fixed Background Canvas for 240-Frame Scroll Animation */
+        #scroll-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -10;
+            pointer-events: none;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Subtle overlay to ensure maximum text readability over background frames */
+        .bg-canvas-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -9;
+            background: rgba(5, 5, 8, 0.45);
+            pointer-events: none;
+        }
+
+        .dark-theme {
+            background: transparent;
+        }
+
+        .bg-darker {
+            background: rgba(5, 5, 5, 0.7);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, var(--primary-orange), var(--primary-fuchsia));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .text-warning { color: var(--warning); }
+        .text-gray { color: var(--text-gray); }
+        .text-sm { font-size: 0.9rem; }
+        .fw-bold { font-weight: 600; }
+        .mb-2 { margin-bottom: 0.5rem; }
+        .mb-3 { margin-bottom: 1rem; }
+        .mb-4 { margin-bottom: 1.5rem; }
+        .mb-5 { margin-bottom: 3rem; }
+        .mt-3 { margin-top: 1rem; }
+        .mt-4 { margin-top: 1.5rem; }
+        .mt-5 { margin-top: 3rem; }
+        .py-4 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+        .text-center { text-align: center; }
+        .text-start { text-align: left; }
+
+        .container {
+            width: 90%;
+            max-width: 1280px;
+            margin: 0 auto;
+        }
+
+        .section-padding {
+            padding: 100px 0;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .section-desc {
+            font-size: 1.2rem;
+            color: var(--text-gray);
+            margin-bottom: 3rem;
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: var(--radius-lg);
+            padding: 2rem;
+            transition: var(--transition);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .glass-card:hover.hover-lift {
+            transform: translateY(-5px);
+            border-color: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.7);
+        }
+
+        .border-gradient {
+            position: relative;
+        }
+        .border-gradient::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius-lg);
+            padding: 1px;
+            background: linear-gradient(135deg, var(--primary-orange), var(--primary-fuchsia));
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        /* Buttons */
+        .btn-executive {
+            background: linear-gradient(135deg, var(--primary-orange), var(--primary-fuchsia));
+            color: #fff;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 30px;
+            font-weight: 500;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-block;
+        }
+
+        .btn-executive:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(216, 30, 91, 0.4);
+        }
+
+        .large-btn {
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+        }
+
+        /* Loader */
+        .loader {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100vh;
+            background: var(--bg-darker);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .loader-content { text-align: center; }
+        .loader-logo { font-size: 3rem; letter-spacing: 4px; margin-bottom: 20px; font-family: var(--font-heading); }
+        .loader-line {
+            width: 0; height: 2px;
+            background: linear-gradient(90deg, var(--primary-orange), var(--primary-fuchsia));
+            margin: 0 auto 20px;
+        }
+        .loader-text { font-size: 0.9rem; color: var(--text-gray); opacity: 0; }
+
+        /* Executive Report Nav */
+        .report-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(8, 8, 12, 0.94);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+        }
+
+        .report-meta-strip {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.35rem 4%;
+            background: rgba(0, 0, 0, 0.65);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 0.72rem;
+            color: var(--text-gray);
+            letter-spacing: 0.5px;
+            font-family: var(--font-body);
+        }
+
+        .meta-left, .meta-right {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .meta-badge.confidential {
+            background: rgba(216, 30, 91, 0.2);
+            color: #FF4D6D;
+            border: 1px solid rgba(216, 30, 91, 0.4);
+            padding: 0.15rem 0.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.68rem;
+            letter-spacing: 0.8px;
+        }
+
+        .meta-divider {
+            color: rgba(255, 255, 255, 0.2);
+        }
+
+        .report-header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.65rem 4%;
+        }
+
+        .report-brand {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .brand-name {
+            font-family: var(--font-heading);
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            line-height: 1;
+            background: linear-gradient(135deg, #FFF, #B0B0B0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .doc-subtitle {
+            font-size: 0.62rem;
+            letter-spacing: 1.5px;
+            color: var(--primary-orange);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-top: 2px;
+        }
+
+        .report-section-pills {
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            background: rgba(20, 20, 26, 0.7);
+            padding: 0.2rem 0.35rem;
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            max-width: 62vw;
+            overflow-x: auto;
+            scrollbar-width: none;
+        }
+
+        .report-section-pills::-webkit-scrollbar {
+            display: none;
+        }
+
+        .sec-pill {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            padding: 0.3rem 0.6rem;
+            border-radius: 20px;
+            text-decoration: none;
+            color: var(--text-gray);
+            font-size: 0.75rem;
+            font-weight: 500;
+            white-space: nowrap;
+            transition: var(--transition);
+        }
+
+        .sec-num {
+            font-size: 0.7rem;
+            font-weight: 700;
+            opacity: 0.6;
+            font-family: monospace;
+        }
+
+        .sec-pill:hover {
+            color: #FFF;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .sec-pill.active {
+            background: linear-gradient(135deg, var(--primary-orange), var(--primary-fuchsia));
+            color: #FFF;
+            box-shadow: 0 4px 15px rgba(216, 30, 91, 0.4);
+        }
+
+        .sec-pill.active .sec-num {
+            opacity: 1;
+            color: #FFF;
+        }
+
+        .report-actions {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .slide-indicator {
+            font-family: monospace;
+            font-size: 0.82rem;
+            color: var(--text-gray);
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.3rem 0.7rem;
+            border-radius: 6px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            letter-spacing: 1px;
+        }
+
+        .btn-report-execute {
+            background: linear-gradient(135deg, var(--primary-orange), var(--primary-fuchsia));
+            color: #fff;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 20px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .btn-report-execute:hover {
+            transform: scale(1.04);
+            box-shadow: 0 8px 20px rgba(216, 30, 91, 0.4);
+        }
+
+        .report-progress-bar {
+            width: 100%;
+            height: 3px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .progress-fill {
+            height: 100%;
+            width: 0%;
+            background: linear-gradient(90deg, var(--primary-orange), var(--primary-fuchsia));
+            transition: width 0.1s ease-out;
+        }
+
+        /* Grids */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+        .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
+        .grid-col-span-2 { grid-column: span 2; }
+
+        /* Lists */
+        .premium-list { list-style: none; }
+        .premium-list li {
+            position: relative; padding-left: 1.5rem; margin-bottom: 1rem; color: var(--text-gray);
+        }
+        .premium-list li::before {
+            content: "•"; position: absolute; left: 0; color: var(--primary-fuchsia); font-size: 1.5rem; line-height: 1;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            height: 100vh; display: flex; align-items: center; padding-top: 110px; position: relative;
+        }
+        .hero-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: center; }
+        .badge {
+            display: inline-block; padding: 0.4rem 1rem; border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1); font-size: 0.8rem; margin-bottom: 1rem; border: 1px solid var(--glass-border);
+        }
+        .hero-title { font-size: 4rem; margin-bottom: 1.5rem; }
+        .hero-subtitle { font-size: 1.2rem; color: var(--text-gray); margin-bottom: 2rem; }
+        .hero-visual { position: relative; }
+        .hero-image { width: 100%; border-radius: var(--radius-lg); object-fit: cover; height: 500px; }
+        .floating-card {
+            position: absolute; display: flex; align-items: center; gap: 10px; padding: 1rem;
+            font-size: 0.9rem; z-index: 5;
+        }
+        .fc-1 { top: 10%; left: -10%; animation: float 6s ease-in-out infinite; }
+        .fc-2 { bottom: 10%; right: -10%; animation: float 5s ease-in-out infinite alternate; }
+
+        @keyframes float { 0% { transform: translateY(0px); } 50% { transform: translateY(-15px); } 100% { transform: translateY(0px); } }
+
+        /* Executive Note */
+        .executive-note {
+            border-left: 4px solid var(--primary-fuchsia); background: rgba(216, 30, 91, 0.1);
+        }
+
+        /* Split Section */
+        .split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .rounded-image { width: 100%; border-radius: var(--radius-lg); }
+
+        /* Market Cards */
+        .market-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
+        .flag-icon { font-size: 1.8rem; }
+        .chart-container { height: 350px; margin-top: 2rem; position: relative; }
+        .chart-container-pie { height: 250px; position: relative; }
+
+        /* SWOT */
+        .swot-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .swot-item { padding: 1.5rem; border-radius: var(--radius-md); background: rgba(255,255,255,0.02); border: 1px solid var(--glass-border); }
+        .swot-item h4 { margin-bottom: 0.5rem; }
+        .swot-item.s h4 { color: var(--primary-fuchsia); }
+        .swot-item.w h4 { color: var(--primary-orange); }
+        .swot-item.o h4 { color: #4CAF50; }
+        .swot-item.t h4 { color: #F44336; }
+
+        .comp-box { padding: 1rem; border-radius: var(--radius-md); background: rgba(255,255,255,0.02); }
+        .highlight-box { padding: 1rem; border-radius: var(--radius-md); background: rgba(216, 30, 91, 0.1); border: 1px solid var(--primary-fuchsia); }
+
+        /* Personas */
+        .avatar-circle { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; margin: 0 auto 1rem; border: 2px solid var(--primary-fuchsia); }
+        .avatar-circle img { width: 100%; height: 100%; object-fit: cover; }
+        .persona-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
+
+        /* Journey Timeline */
+        .timeline-flex { display: flex; justify-content: space-between; align-items: flex-start; margin-top: 2rem; }
+        .timeline-step { text-align: center; width: 20%; }
+        .timeline-step i { font-size: 2rem; color: var(--primary-orange); margin-bottom: 0.5rem; }
+        .highlight-step i { color: #25D366; }
+        .timeline-connector { flex-grow: 1; height: 2px; background: var(--glass-border); margin-top: 1.5rem; }
+
+        /* Metrics */
+        .metrics-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+        .metric-box { background: rgba(255,255,255,0.02); padding: 1.5rem; border-radius: var(--radius-md); text-align: center; }
+        .metric-value { font-size: 2.5rem; font-weight: 700; font-family: var(--font-heading); }
+
+        /* Swiper */
+        .product-swiper { padding-bottom: 50px; }
+        .prod-img-placeholder { height: 180px; background: rgba(255,255,255,0.05); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-gray); }
+
+        /* Channels */
+        .channel-icon { font-size: 2.5rem; color: var(--primary-fuchsia); margin-bottom: 1rem; display: inline-block; }
+
+        /* KPI Dashboard */
+        .kpi-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+
+        /* Roadmap */
+        .roadmap-card { position: relative; }
+        .step-num { position: absolute; top: -15px; right: -15px; width: 40px; height: 40px; border-radius: 50%; background: var(--primary-fuchsia); display: flex; align-items: center; justify-content: center; font-weight: 700; }
+
+        /* Final Section - Open stage for hands background animation */
+        .final-section {
+            background: transparent !important;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .final-stage-wrapper {
+            position: relative;
+            width: 100%;
+            padding: 2rem 0;
+        }
+
+        .final-stage-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto;
+            gap: 2.5rem 5rem;
+            align-items: center;
+            margin: 2.5rem 0;
+            position: relative;
+        }
+
+        .final-card-left {
+            grid-column: 1;
+            grid-row: 1;
+            max-width: 380px;
+            justify-self: start;
+        }
+
+        .final-card-right {
+            grid-column: 2;
+            grid-row: 1;
+            max-width: 380px;
+            justify-self: end;
+        }
+
+        .final-card-bottom {
+            grid-column: 1 / span 2;
+            grid-row: 2;
+            max-width: 520px;
+            justify-self: center;
+        }
+
+        .final-card-left, .final-card-right, .final-card-bottom {
+            background: rgba(12, 12, 16, 0.72) !important;
+            backdrop-filter: blur(20px) !important;
+            -webkit-backdrop-filter: blur(20px) !important;
+            border: 1px solid rgba(255, 255, 255, 0.15) !important;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6) !important;
+            padding: 1.8rem;
+            border-radius: var(--radius-lg);
+        }
+
+        .final-num { font-size: 2.5rem; font-weight: 700; font-family: var(--font-heading); flex-shrink: 0; }
+        .glow-btn { box-shadow: 0 0 35px rgba(216, 30, 91, 0.6); }
+
+        @media (max-width: 992px) {
+            .final-stage-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+            .final-card-left, .final-card-right, .final-card-bottom {
+                grid-column: 1;
+                justify-self: center;
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+
+    <!-- Canvas for 240-Frame Scroll Animation -->
+    <canvas id="scroll-canvas"></canvas>
+
+    <!-- Dark Overlay to keep text & cards crystal clear -->
+    <div class="bg-canvas-overlay"></div>
+
+    <!-- Premium Loader -->
+    <div class="loader">
+        <div class="loader-content">
+            <h1 class="loader-logo">MONSTEL</h1>
+            <div class="loader-line"></div>
+            <p class="loader-text">Loading Omnichannel Expansion Masterplan...</p>
+        </div>
+    </div>
+
+    <!-- Executive Report Navigation Bar -->
+    <nav class="report-nav">
+        <!-- Top Metadata Classification Bar -->
+        <div class="report-meta-strip">
+            <div class="meta-left">
+                <span class="meta-badge confidential"><i class="bi bi-lock-fill"></i> RESTRICTED & CONFIDENTIAL</span>
+                <span class="meta-divider">|</span>
+                <span class="meta-doc-id">DOC ID: MNT-2026-EXP</span>
+                <span class="meta-divider">|</span>
+                <span class="meta-author">JESSY PHARMA EXECUTIVE BOARD</span>
+            </div>
+            <div class="meta-right">
+                <span class="meta-date">JULY 2026</span>
+                <span class="meta-divider">|</span>
+                <span class="meta-status"><i class="bi bi-check-circle-fill text-success"></i> BOARD APPROVED</span>
+            </div>
+        </div>
+
+        <!-- Main Report Header Bar -->
+        <div class="report-header-container">
+            <!-- Brand & Document Title -->
+            <div class="report-brand">
+                <span class="brand-name">MONSTEL</span>
+                <span class="doc-subtitle">STRATEGIC MASTERPLAN</span>
+            </div>
+
+            <!-- Numbered Section Navigation Pills (All sections except final) -->
+            <div class="report-section-pills">
+                <a href="#hero" class="sec-pill active" data-section="hero"><span class="sec-num">01</span><span class="sec-label">Cover</span></a>
+                <a href="#agenda" class="sec-pill" data-section="agenda"><span class="sec-num">02</span><span class="sec-label">Agenda</span></a>
+                <a href="#executive-summary" class="sec-pill" data-section="executive-summary"><span class="sec-num">03</span><span class="sec-label">Summary</span></a>
+                <a href="#market" class="sec-pill" data-section="market"><span class="sec-num">04</span><span class="sec-label">Market</span></a>
+                <a href="#analysis" class="sec-pill" data-section="analysis"><span class="sec-num">05</span><span class="sec-label">Analysis</span></a>
+                <a href="#audience" class="sec-pill" data-section="audience"><span class="sec-num">06</span><span class="sec-label">Audience</span></a>
+                <a href="#positioning" class="sec-pill" data-section="positioning"><span class="sec-num">07</span><span class="sec-label">Strategy</span></a>
+                <a href="#portfolio" class="sec-pill" data-section="portfolio"><span class="sec-num">08</span><span class="sec-label">Portfolio</span></a>
+                <a href="#funnel" class="sec-pill" data-section="funnel"><span class="sec-num">09</span><span class="sec-label">Ecosystem</span></a>
+                <a href="#dashboard" class="sec-pill" data-section="dashboard"><span class="sec-num">10</span><span class="sec-label">Financials</span></a>
+                <a href="#roadmap" class="sec-pill" data-section="roadmap"><span class="sec-num">11</span><span class="sec-label">Roadmap</span></a>
+            </div>
+
+            <!-- Executive Quick Action Button & Slide Counter -->
+            <div class="report-actions">
+                <span class="slide-indicator" id="slide-indicator">01 / 12</span>
+                <a href="#final" class="btn-report-execute"><i class="bi bi-check2-square"></i> Execute Plan</a>
+            </div>
+        </div>
+
+        <!-- Segmented Section Progress Line -->
+        <div class="report-progress-bar">
+            <div class="progress-fill" id="reportProgress"></div>
+        </div>
+    </nav>
+
+    <!-- SLIDE 1: Cover -->
+    <section id="hero" class="hero-section">
+        <div class="container hero-grid">
+            <div class="hero-content" data-aos="fade-up" data-aos-duration="1000">
+                <div class="badge"><i class="bi bi-shield-check text-gradient"></i> Prepared for Jessy Pharma Executive Board</div>
+                <h1 class="hero-title">Strategic Omnichannel <span class="text-gradient">Expansion Masterplan</span></h1>
+                <p class="hero-subtitle">Driving Market Penetration and Luxury Brand Equity for Monstel in Egypt and Saudi Arabia.</p>
+                
+                <div class="executive-note glass-card mt-4">
+                    <i class="bi bi-mic-fill text-gradient"></i>
+                    <p><strong>Speaker Notes:</strong> "The presentation commences by anchoring the Monstel brand within the visual vernacular of elite global cosmetics. The strategic mandate for Jessy Pharma is not merely to sell haircare products, but to cultivate a luxury clinical ecosystem that commands premium pricing. By aligning our digital presentation with physical product quality containing exclusive Azeron extract, Jamaican black castor oil, Biotin, and Hyaluronic Acid, we lay the foundation for a brand equity transformation across Egypt and Saudi Arabia."</p>
+                </div>
+            </div>
+            <div class="hero-visual" data-aos="zoom-in" data-aos-duration="1500">
+                <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1000&auto=format&fit=crop" alt="Luxury Beauty Model Healthy Hair" class="hero-image">
+                <div class="floating-card fc-1 glass-card">
+                    <i class="bi bi-graph-up-arrow text-gradient"></i>
+                    <span>$7.55B MENA Haircare Market</span>
+                </div>
+                <div class="floating-card fc-2 glass-card">
+                    <i class="bi bi-award text-gradient"></i>
+                    <span>Exclusive Azeron Clinical Formulations</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 2: Boardroom Agenda -->
+    <section id="agenda" class="section-padding bg-darker">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 class="section-title">Boardroom <span class="text-gradient">Masterplan Agenda</span></h2>
+                <p class="section-desc">Linear progression from raw market analytics to actionable financial return.</p>
+            </div>
+
+            <div class="grid-4 mb-4">
+                <div class="glass-card hover-lift" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon text-gradient" style="font-size: 2rem; margin-bottom: 1rem;"><i class="bi bi-search"></i></div>
+                    <h4>Phase I</h4>
+                    <h3 class="mt-2 mb-2">Market Intelligence</h3>
+                    <p class="text-sm text-gray">MENA macro growth, Egypt 6.8% CAGR, KSA $2.43B forecast & consumer behavior.</p>
+                </div>
+
+                <div class="glass-card hover-lift border-gradient" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-icon text-gradient" style="font-size: 2rem; margin-bottom: 1rem;"><i class="bi bi-bounding-box-circles"></i></div>
+                    <h4>Phase II</h4>
+                    <h3 class="mt-2 mb-2">Strategic Positioning</h3>
+                    <p class="text-sm text-gray">Clinical natural moat, matrix positioning (950-1,500 EGP), SWOT & competitive landscape.</p>
+                </div>
+
+                <div class="glass-card hover-lift" data-aos="fade-up" data-aos-delay="300">
+                    <div class="card-icon text-gradient" style="font-size: 2rem; margin-bottom: 1rem;"><i class="bi bi-phone"></i></div>
+                    <h4>Phase III</h4>
+                    <h3 class="mt-2 mb-2">Omnichannel Activation</h3>
+                    <p class="text-sm text-gray">TOFU/MOFU/BOFU digital acquisition funnel across TikTok, Instagram, Snapchat & WhatsApp.</p>
+                </div>
+
+                <div class="glass-card hover-lift" data-aos="fade-up" data-aos-delay="400">
+                    <div class="card-icon text-gradient" style="font-size: 2rem; margin-bottom: 1rem;"><i class="bi bi-pie-chart-fill"></i></div>
+                    <h4>Phase IV</h4>
+                    <h3 class="mt-2 mb-2">Financials & Roadmap</h3>
+                    <p class="text-sm text-gray">3.5x ROAS targets, budget allocation model, 90-day execution milestones & risk mitigations.</p>
+                </div>
+            </div>
+
+            <div class="executive-note glass-card mt-4" data-aos="fade-up">
+                <p><strong>Speaker Notes:</strong> "The session is structured to guide stakeholders through a logical progression: from macroeconomic analytics to Monstel's competitive moat, followed by social acquisition funnels, culminating in a rigorous review of budget allocations and 90-day execution milestones."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 3: Executive Overview -->
+    <section id="executive-summary" class="section-padding">
+        <div class="container">
+            <div class="split-layout">
+                <div class="split-text" data-aos="fade-right">
+                    <h2 class="section-title">Executive <span class="text-gradient">Summary</span></h2>
+                    <p class="section-desc">Monstel is a premier Egyptian clinical haircare brand poised for rapid expansion across Saudi Arabia. Powered by proprietary Azeron formulation and clinical ingredients, Monstel solves critical haircare issues.</p>
+                    <ul class="premium-list">
+                        <li>Proven 6-Year Track Record in Egypt</li>
+                        <li>Expanding High-AOV Footprint in KSA</li>
+                        <li>Proprietary Azeron Botanical Extract</li>
+                        <li>Targeted 3.5x ROAS Omnichannel Strategy</li>
+                    </ul>
+                </div>
+                <div class="split-visual" data-aos="fade-left">
+                    <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=800&auto=format&fit=crop" alt="Premium Haircare Flatlay" class="rounded-image shadow-premium">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 4 & 5: Market Research -->
+    <section id="market" class="section-padding bg-darker">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 class="section-title">Macro Industry Trends & <span class="text-gradient">Market Dynamics</span></h2>
+                <p class="section-desc">Haircare MENA 2026: The "Skinification" of Hair</p>
+            </div>
+
+            <div class="grid-2 mb-5">
+                <div class="glass-card" data-aos="fade-right">
+                    <div class="market-header">
+                        <span class="flag-icon">🇪🇬</span>
+                        <h3>Egypt (Volume & Value)</h3>
+                    </div>
+                    <ul class="premium-list">
+                        <li>Rampant inflation has created a "Boycott/Local Alternative" boom.</li>
+                        <li>Highly price-sensitive; consumers seek bulk value (bundles).</li>
+                        <li>Influenced by Facebook, local dermatologists, and TV.</li>
+                    </ul>
+                </div>
+                <div class="glass-card" data-aos="fade-left">
+                    <div class="market-header">
+                        <span class="flag-icon">🇸🇦</span>
+                        <h3>Saudi Arabia ($1.78B Market)</h3>
+                    </div>
+                    <ul class="premium-list">
+                        <li>Driven by high disposable income and climate-specific needs (desalinated water, extreme heat, Hijab friction).</li>
+                        <li>High AOV. Less price-sensitive.</li>
+                        <li>Influenced by Snapchat, TikTok aesthetics, fast shipping.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="chart-container glass-card" data-aos="fade-up">
+                <canvas id="marketGrowthChart"></canvas>
+            </div>
+
+            <div class="executive-note glass-card mt-4" data-aos="fade-up">
+                <i class="bi bi-mic-fill text-gradient"></i>
+                <p><strong>Speaker Notes:</strong> "We cannot sell to Riyadh the way we sell to Cairo. Egypt responds to '8 pieces for 2,200 EGP' urgency. Saudi Arabia will respond to 'The Ultimate 30-Day Desalinated Water Damage Reversal Kit.' The product is the same, but the packaging, messaging, and pricing strategy must adapt."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 6 & 7: Competitor Analysis & SWOT -->
+    <section id="analysis" class="section-padding">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Strategic Analysis & <span class="text-gradient">White Space</span></h2>
+            </div>
+            
+            <div class="grid-2 mb-5">
+                <div class="glass-card" data-aos="fade-up">
+                    <h3>Competitive Landscape</h3>
+                    <div class="comp-box mt-2">
+                        <h4>🇪🇬 Egypt Competitors: Raw African, Penduline, Bless</h4>
+                        <p class="text-sm text-gray">Strength: Aesthetic organic branding. Weakness: Slow results, lack of clinical edge.</p>
+                    </div>
+                    <div class="comp-box mt-3">
+                        <h4>🇸🇦 KSA Competitors: Mielle Organics, global salon brands</h4>
+                        <p class="text-sm text-gray">Strength: Global authority. Weakness: Not formulated for MENA weather/water.</p>
+                    </div>
+                    <div class="highlight-box mt-3">
+                        <h4><i class="bi bi-star-fill text-gradient"></i> Monstel’s White Space</h4>
+                        <p class="text-sm">The intersection of "100% Natural Safety" and "Clinical Speed." Visible results starting month 1.</p>
+                    </div>
+                </div>
+
+                <div class="swot-grid" data-aos="fade-up" data-aos-delay="200">
+                    <div class="swot-item s">
+                        <h4>Strengths</h4>
+                        <p class="text-sm text-gray">Exclusive Aziron, proven fast formulas, strong TV trust, comprehensive bundles.</p>
+                    </div>
+                    <div class="swot-item w">
+                        <h4>Weaknesses</h4>
+                        <p class="text-sm text-gray">Digital presence lags, over-discounting damages premium perception, KSA awareness low.</p>
+                    </div>
+                    <div class="swot-item o">
+                        <h4>Opportunities</h4>
+                        <p class="text-sm text-gray">KSA TikTok Shop, "Ceramide Cold Protein" virality, Egyptian shift to local brands.</p>
+                    </div>
+                    <div class="swot-item t">
+                        <h4>Threats</h4>
+                        <p class="text-sm text-gray">Rising CAC on Meta, high competition in KSA from global giants.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 8 & 9: Target Audience & Personas -->
+    <section id="audience" class="section-padding bg-darker">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 class="section-title">Defining Our <span class="text-gradient">Core Audience</span></h2>
+            </div>
+
+            <div class="grid-3 mb-5">
+                <div class="glass-card text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="avatar-circle"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Tier 1"></div>
+                    <h3>Tier 1: Post-Partum & Stress</h3>
+                    <p class="text-sm text-gray">Women 25-40. Seeking immediate, safe, Minoxidil-free solutions for shedding.</p>
+                </div>
+                <div class="glass-card text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="avatar-circle"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=200&auto=format&fit=crop" alt="Tier 2"></div>
+                    <h3>Tier 2: Damage Repair</h3>
+                    <p class="text-sm text-gray">Women 18-35. Suffering from heat, chlorine, and hard water. Needs Keratin & Ceramide.</p>
+                </div>
+                <div class="glass-card text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="avatar-circle"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="Tier 3"></div>
+                    <h3>Tier 3: Genetic Thinning</h3>
+                    <p class="text-sm text-gray">Men & Women 30-50. Looking for clinical-strength growth oils to fill gaps.</p>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="persona-card glass-card border-gradient" data-aos="fade-right">
+                    <div class="persona-header">
+                        <h3>"Solution-Seeking Sara"</h3>
+                        <span class="badge">Egypt</span>
+                    </div>
+                    <ul class="premium-list">
+                        <li><strong>Profile:</strong> 32, working mother.</li>
+                        <li><strong>Pain Point:</strong> Post-partum hair loss.</li>
+                        <li><strong>Trigger:</strong> Doctor recommendation or Marwa Emam on TV.</li>
+                        <li><strong>Behavior:</strong> Facebook/Instagram. Values bundles and discounts.</li>
+                    </ul>
+                </div>
+                <div class="persona-card glass-card border-gradient" data-aos="fade-left">
+                    <div class="persona-header">
+                        <h3>"Premium Reem"</h3>
+                        <span class="badge">KSA</span>
+                    </div>
+                    <ul class="premium-list">
+                        <li><strong>Profile:</strong> 24, high disposable income.</li>
+                        <li><strong>Pain Point:</strong> Hair won't grow, desalinated water damage.</li>
+                        <li><strong>Trigger:</strong> Aesthetic TikTok UGC, Snapchat, peer validation.</li>
+                        <li><strong>Behavior:</strong> TikTok/Snapchat. Values aesthetics and fast shipping.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 10, 11, 12: Strategy -->
+    <section id="positioning" class="section-padding">
+        <div class="container">
+            <h2 class="section-title text-center mb-5" data-aos="fade-up">The Bio-Clinical <span class="text-gradient">Growth Strategy</span></h2>
+            
+            <div class="journey-timeline glass-card mb-5" data-aos="fade-up">
+                <h3 class="mb-4">The Monstel Buying Journey</h3>
+                <div class="timeline-flex">
+                    <div class="timeline-step">
+                        <i class="bi bi-tiktok"></i>
+                        <h4>Awareness</h4>
+                        <p class="text-sm text-gray">Educational TikTok on hard water damage.</p>
+                    </div>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-step">
+                        <i class="bi bi-instagram"></i>
+                        <h4>Consideration</h4>
+                        <p class="text-sm text-gray">Retargeted Carousel ad detailing Mask & Serum.</p>
+                    </div>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-step">
+                        <i class="bi bi-cart-check"></i>
+                        <h4>Conversion</h4>
+                        <p class="text-sm text-gray">Buys "Health Hair Bundle" via smart offer.</p>
+                    </div>
+                    <div class="timeline-connector"></div>
+                    <div class="timeline-step highlight-step">
+                        <i class="bi bi-whatsapp"></i>
+                        <h4>Retention</h4>
+                        <p class="text-sm text-gray">Day 25 Automated Refill via WhatsApp.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="glass-card" data-aos="fade-right">
+                    <h3>Brand Positioning</h3>
+                    <div class="highlight-box mt-3">
+                        <p><strong>New Positioning:</strong> "The Bio-Clinical Hair Rescue."</p>
+                        <p><strong>The Promise:</strong> Clinical Speed + 100% Natural Safety.</p>
+                    </div>
+                    <ul class="premium-list mt-3">
+                        <li><strong>Exclusivity:</strong> The only formula in Egypt with Aziron.</li>
+                        <li><strong>Speed:</strong> Visible baby hair starting in 30 days.</li>
+                        <li><strong>Protection:</strong> Shield from heat and desalinated water.</li>
+                    </ul>
+                </div>
+                
+                <div class="glass-card metrics-grid" data-aos="fade-left">
+                    <h3 class="grid-col-span-2">SMART Marketing Goals (12 Mos)</h3>
+                    <div class="metric-box">
+                        <div class="metric-value text-gradient"><span id="metric-rev">0</span>%</div>
+                        <p class="text-sm text-gray">KSA Revenue Growth (No deep discounts)</p>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value text-gradient">-<span id="metric-cac">0</span>%</div>
+                        <p class="text-sm text-gray">Overall CAC Decrease</p>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value text-gradient"><span id="metric-ret">0</span>%</div>
+                        <p class="text-sm text-gray">Repeat Customer Rate</p>
+                    </div>
+                    <div class="metric-box">
+                        <div class="metric-value text-gradient"><span id="metric-views">0</span>M</div>
+                        <p class="text-sm text-gray">Organic Views (#MonstelJourney)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 13: Product Swiper -->
+    <section id="portfolio" class="section-padding bg-darker">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Strategic <span class="text-gradient">Product Positioning</span></h2>
+            </div>
+            
+            <div class="swiper product-swiper" data-aos="fade-up" data-aos-delay="200">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide glass-card">
+                        <div class="prod-img-placeholder">Growth Oils</div>
+                        <h3>Growth/Lengthening Oils</h3>
+                        <p class="text-gradient fw-bold">Anchor Product</p>
+                        <p class="text-sm text-gray mt-2"><strong>Angle:</strong> "The 3-Month Genetic Baldness Reversal." High margin.</p>
+                    </div>
+                    <div class="swiper-slide glass-card">
+                        <div class="prod-img-placeholder">Shampoo</div>
+                        <h3>Shampoo</h3>
+                        <p class="text-gradient fw-bold">TOFU Entry</p>
+                        <p class="text-sm text-gray mt-2"><strong>Angle:</strong> "Sulfate-free scalp detox with Biotin & Aziron."</p>
+                    </div>
+                    <div class="swiper-slide glass-card">
+                        <div class="prod-img-placeholder">Ceramide</div>
+                        <h3>Ceramide Protein</h3>
+                        <p class="text-gradient fw-bold">Viral Hero</p>
+                        <p class="text-sm text-gray mt-2"><strong>Angle:</strong> "Cold-straightening in seconds." Highly visual for TikTok.</p>
+                    </div>
+                    <div class="swiper-slide glass-card">
+                        <div class="prod-img-placeholder">Keratin</div>
+                        <h3>Keratin Serum</h3>
+                        <p class="text-gradient fw-bold">Summer Hero</p>
+                        <p class="text-sm text-gray mt-2"><strong>Angle:</strong> "The invisible shield against heat and swimming pools."</p>
+                    </div>
+                    <div class="swiper-slide glass-card">
+                        <div class="prod-img-placeholder">Mask</div>
+                        <h3>Shea Butter Mask</h3>
+                        <p class="text-gradient fw-bold">Hydration Focus</p>
+                        <p class="text-sm text-gray mt-2"><strong>Angle:</strong> "Deep hydration for Hijab-friction and split ends."</p>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 14 to 18: Ecosystem -->
+    <section id="funnel" class="section-padding">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 class="section-title">The Complete <span class="text-gradient">Marketing Ecosystem</span></h2>
+            </div>
+
+            <div class="grid-4 mb-5" data-aos="fade-up">
+                <div class="channel-card glass-card text-center">
+                    <i class="bi bi-tiktok channel-icon"></i>
+                    <h4>TikTok</h4>
+                    <p class="text-sm text-gray">UGC, viral hooks, 30-day journey documentation. (Growth)</p>
+                </div>
+                <div class="channel-card glass-card text-center">
+                    <i class="bi bi-instagram channel-icon"></i>
+                    <h4>Instagram</h4>
+                    <p class="text-sm text-gray">Aesthetics, Carousel education, Influencers. (Brand Equity)</p>
+                </div>
+                <div class="channel-card glass-card text-center">
+                    <i class="bi bi-facebook channel-icon"></i>
+                    <h4>Facebook</h4>
+                    <p class="text-sm text-gray">Traditional ads, Marwa Emam bundles for 35+. (Volume - EG)</p>
+                </div>
+                <div class="channel-card glass-card text-center">
+                    <i class="bi bi-snapchat channel-icon text-warning"></i>
+                    <h4>Snapchat</h4>
+                    <p class="text-sm text-gray">Influencer takeovers, Direct purchase optimized. (Conv - KSA)</p>
+                </div>
+            </div>
+
+            <div class="grid-2 mb-5">
+                <div class="glass-card" data-aos="fade-right">
+                    <h3>High-Converting Content Pillars</h3>
+                    <ul class="premium-list mt-3">
+                        <li><strong>1. Educational Authority:</strong> "Why Minoxidil causes shedding..."</li>
+                        <li><strong>2. The 90-Day Proof:</strong> UGC showing Day 1, 30, 90.</li>
+                        <li><strong>3. The Routine:</strong> "My post-pool routine" (Keratin).</li>
+                        <li><strong>4. Repurposed TV:</strong> 15s punchy digital ads from Marwa Emam segments.</li>
+                    </ul>
+                </div>
+                <div class="glass-card" data-aos="fade-left">
+                    <h3>Strategic Influencer Deployment</h3>
+                    <div class="mt-3">
+                        <h5>🇪🇬 Egypt Focus (Medical/Trust):</h5>
+                        <p class="text-sm text-gray mb-3">Marwa Emam & Dr. Sarah El Mahdy for bundles. Dermatologist Nano-Creators to review Aziron.</p>
+                        <h5>🇸🇦 KSA Focus (Aesthetic/Lifestyle):</h5>
+                        <p class="text-sm text-gray">Saudi Micro-Influencers. Send "Desalinated Water Repair Kit" to 30 nano/micro creators for authentic UGC.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid-2">
+                <div class="glass-card border-gradient" data-aos="fade-up">
+                    <h3>Paid Ads Strategy</h3>
+                    <p class="text-sm text-gray mb-2"><strong>Structure:</strong> 70% Broad, 30% Retargeting.</p>
+                    <p class="text-sm text-gray mb-2"><strong>Egypt:</strong> Push massive bundles (8x4).</p>
+                    <p class="text-sm text-gray mb-2"><strong>KSA:</strong> Push curated "Kits" at premium price + Free Shipping.</p>
+                    <p class="text-sm text-gray mb-2"><strong>Search:</strong> Google Shopping for "علاج الصلع الوراثي".</p>
+                </div>
+                <div class="glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <h3>Organic Growth Strategy</h3>
+                    <p class="text-sm text-gray mb-2"><strong>Web SEO:</strong> "How to fix hard water hair damage in KSA" (Pitches Serum).</p>
+                    <p class="text-sm text-gray mb-2"><strong>Social SEO:</strong> Keywords in captions (تطويل الشعر بسرعة).</p>
+                    <p class="text-sm text-gray mb-2"><strong>UGC Loop:</strong> Automated post-purchase email offering 20% off for TikTok review video.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 19 & 20: KPI Dashboard -->
+    <section id="dashboard" class="section-padding bg-darker">
+        <div class="container">
+            <div class="section-header text-center" data-aos="fade-up">
+                <h2 class="section-title">Executive <span class="text-gradient">KPI Dashboard</span></h2>
+                <p class="section-desc">Budget Allocation & Performance Metrics</p>
+            </div>
+
+            <div class="grid-2 mb-5">
+                <div class="glass-card text-center" data-aos="fade-right">
+                    <h3>Optimized Budget Distribution</h3>
+                    <div class="chart-container-pie mt-4">
+                        <canvas id="budgetChart"></canvas>
+                    </div>
+                </div>
+                <div class="kpi-grid" data-aos="fade-left">
+                    <div class="glass-card text-center">
+                        <h4>Target ROAS</h4>
+                        <div class="metric-value text-gradient">>3.5x</div>
+                    </div>
+                    <div class="glass-card text-center">
+                        <h4>Ad CTR Target</h4>
+                        <div class="metric-value text-gradient">>1.5%</div>
+                    </div>
+                    <div class="glass-card text-center">
+                        <h4>Web Conversion</h4>
+                        <div class="metric-value text-gradient">>2.5%</div>
+                    </div>
+                    <div class="glass-card text-center">
+                        <h4>Repeat Purchase</h4>
+                        <div class="metric-value text-gradient">>30%</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="executive-note glass-card mt-4" data-aos="fade-up">
+                <p><strong>Speaker Notes:</strong> "We operate on data, not emotion. If an ad isn't hitting a 1.5% CTR, the creative is dead. If the website conversion drops below 2%, the landing page is broken. We track every click to ensure profitability."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 21 & 22: Roadmap -->
+    <section id="roadmap" class="section-padding">
+        <div class="container">
+            <h2 class="section-title mb-5" data-aos="fade-up">90-Day <span class="text-gradient">Execution Roadmap</span></h2>
+            
+            <div class="grid-3 mb-5">
+                <div class="glass-card roadmap-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-num">1</div>
+                    <h3>Month 1: Foundation</h3>
+                    <ul class="text-sm premium-list">
+                        <li>Audit website conversion rate.</li>
+                        <li>Set up Meta/TikTok Pixels.</li>
+                        <li>Launch WhatsApp abandoned cart flows.</li>
+                        <li>Edit TV clips to short-form ads.</li>
+                    </ul>
+                </div>
+                <div class="glass-card roadmap-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-num">2</div>
+                    <h3>Month 2: Testing</h3>
+                    <ul class="text-sm premium-list">
+                        <li>Launch TikTok/Meta test campaigns.</li>
+                        <li>Seed products to 30 micro-influencers.</li>
+                        <li>Test Bundles vs Premium Kits.</li>
+                    </ul>
+                </div>
+                <div class="glass-card roadmap-card border-gradient" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-num">3</div>
+                    <h3>Month 3: Scaling</h3>
+                    <ul class="text-sm premium-list">
+                        <li>Double budget on winning ad sets.</li>
+                        <li>Launch Google Shopping.</li>
+                        <li>Roll out 90-Day Monstel Challenge UGC.</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="glass-card" data-aos="fade-up">
+                <h3 class="mb-4">Risk Analysis & Mitigation</h3>
+                <div class="grid-3">
+                    <div class="risk-box">
+                        <p class="text-warning fw-bold"><i class="bi bi-shield-exclamation"></i> Brand Dilution (Discounts)</p>
+                        <p class="text-sm text-gray"><strong>Fix:</strong> Transition from "60% Off" to "Value-Adds" to protect KSA equity.</p>
+                    </div>
+                    <div class="risk-box">
+                        <p class="text-warning fw-bold"><i class="bi bi-shield-exclamation"></i> Ad Account Bans</p>
+                        <p class="text-sm text-gray"><strong>Fix:</strong> Focus creatives on sensory experience and ingredients over medical claims.</p>
+                    </div>
+                    <div class="risk-box">
+                        <p class="text-warning fw-bold"><i class="bi bi-shield-exclamation"></i> KSA Shipping Costs</p>
+                        <p class="text-sm text-gray"><strong>Fix:</strong> Strict Free Shipping threshold forcing 3-item bundle purchases.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SLIDE 23: Final Recommendations & Stage Presentation -->
+    <section id="final" class="section-padding final-section">
+        <div class="container text-center final-stage-wrapper">
+            <h2 class="section-title" data-aos="fade-down" data-aos-duration="900">Immediate <span class="text-gradient">Strategic Priorities</span></h2>
+            <p class="section-desc mb-4" data-aos="fade-down" data-aos-delay="100">The Quick Wins for Instant ROI</p>
+            
+            <!-- 3 Separated Priority Cards Framing the Center Stage Hands Animation -->
+            <div class="final-stage-grid">
+                <!-- Priority 1: Maximum Left -->
+                <div class="final-card-left hover-lift border-gradient" data-aos="fade-right" data-aos-duration="1000" data-aos-delay="200">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="final-num text-gradient">1</div>
+                        <h3 class="text-start">Activate WhatsApp Retention Today</h3>
+                    </div>
+                    <p class="text-sm text-gray text-start">Set up abandoned cart recovery and 45-day replenishment reminders. Near-zero-cost ROI.</p>
+                </div>
+
+                <!-- Priority 2: Maximum Right -->
+                <div class="final-card-right hover-lift border-gradient" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="300">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="final-num text-gradient">2</div>
+                        <h3 class="text-start">Separate KSA Store Experience</h3>
+                    </div>
+                    <p class="text-sm text-gray text-start">KSA sees premium kits/UGC. Egypt sees high-volume bundle offers.</p>
+                </div>
+
+                <!-- Priority 3: Bottom Center -->
+                <div class="final-card-bottom hover-lift border-gradient" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400">
+                    <div class="flex items-center gap-3 mb-2">
+                        <div class="final-num text-gradient">3</div>
+                        <h3 class="text-start">UGC Seeding in KSA</h3>
+                    </div>
+                    <p class="text-sm text-gray text-start">Ship products to 20 Saudi nano-creators immediately to break into the market.</p>
+                </div>
+            </div>
+
+            <!-- CTA Action Button -->
+            <div class="mt-4" data-aos="zoom-in" data-aos-delay="500">
+                <button class="btn-executive large-btn glow-btn">Approve Phase 1 Budget</button>
+            </div>
+            
+            <div class="executive-note glass-card mt-5 text-start" data-aos="fade-up" data-aos-delay="600">
+                <p><strong>Speaker Notes:</strong> "To summarize: We automate WhatsApp to capture lost revenue, we tailor the website experience by country, and we flood TikTok with authentic KSA creators. This roadmap secures our regional dominance. We are now seeking the board's alignment and budget approval to begin Phase 1 execution. Thank you."</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="glass-nav text-center py-4 mt-5">
+        <p class="text-sm text-gray">© 2026 MONSTEL Pharma. Executive Strategy Prepared by International Creative Agency.</p>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/studio-freight/lenis@1.0.29/bundled/lenis.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/countup.js/2.8.0/countUp.umd.js"></script>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            // 1. Smooth 240-Frame Canvas Scroll Background Logic
+            const canvas = document.getElementById('scroll-canvas');
+            const ctx = canvas.getContext('2d', { alpha: false });
+
+            const frameCount = 240;
+            const images = [];
+            let loadedCount = 0;
+            let targetFrame = 0;
+            let currentFrame = 0;
+            let lastRenderedFrame = -1;
+
+            const currentFrameUrl = index => {
+                const paddedIndex = String(index + 1).padStart(3, '0');
+                return `./background-frames/ezgif-frame-${paddedIndex}.jpg`;
+            };
+
+            function resizeCanvas() {
+                const dpr = Math.min(window.devicePixelRatio || 1, 2);
+                canvas.width = window.innerWidth * dpr;
+                canvas.height = window.innerHeight * dpr;
+                lastRenderedFrame = -1;
+            }
+
+            window.addEventListener('resize', resizeCanvas);
+            resizeCanvas();
+
+            function drawImageCover(img) {
+                if (!img || !img.complete || img.naturalWidth === 0) return;
+
+                const cw = canvas.width;
+                const ch = canvas.height;
+                const iw = img.naturalWidth;
+                const ih = img.naturalHeight;
+
+                const scale = Math.max(cw / iw, ch / ih);
+                const nw = iw * scale;
+                const nh = ih * scale;
+                const cx = (cw - nw) / 2;
+                const cy = (ch - nh) / 2;
+
+                ctx.fillStyle = '#000';
+                ctx.fillRect(0, 0, cw, ch);
+                ctx.drawImage(img, cx, cy, nw, nh);
+            }
+
+            function animateCanvas() {
+                currentFrame += (targetFrame - currentFrame) * 0.15;
+                const frameIndex = Math.min(
+                    frameCount - 1,
+                    Math.max(0, Math.round(currentFrame))
+                );
+
+                if (frameIndex !== lastRenderedFrame) {
+                    const img = images[frameIndex];
+                    if (img && img.complete) {
+                        drawImageCover(img);
+                        lastRenderedFrame = frameIndex;
+                    }
+                }
+
+                requestAnimationFrame(animateCanvas);
+            }
+
+            function updateTargetFrame() {
+                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                if (maxScroll <= 0) return;
+                const scrollFraction = Math.min(1, Math.max(0, window.scrollY / maxScroll));
+                targetFrame = scrollFraction * (frameCount - 1);
+            }
+
+            window.addEventListener('scroll', updateTargetFrame, { passive: true });
+
+            for (let i = 0; i < frameCount; i++) {
+                const img = new Image();
+                img.src = currentFrameUrl(i);
+                img.onload = () => {
+                    loadedCount++;
+                    if (loadedCount === 1) {
+                        drawImageCover(img);
+                        lastRenderedFrame = 0;
+                    }
+                };
+                images.push(img);
+            }
+
+            requestAnimationFrame(animateCanvas);
+
+            // 2. Lenis Smooth Scrolling
+            const lenis = new Lenis({
+                duration: 1.2,
+                easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+                direction: 'vertical',
+                gestureDirection: 'vertical',
+                smooth: true,
+                mouseMultiplier: 1,
+                smoothTouch: false,
+                touchMultiplier: 2,
+                infinite: false,
+            });
+
+            function raf(time) {
+                lenis.raf(time);
+                requestAnimationFrame(raf);
+            }
+            requestAnimationFrame(raf);
+
+            // Update frame target when Lenis scrolls
+            lenis.on('scroll', updateTargetFrame);
+
+            // 3. Initialize AOS (Animate on Scroll)
+            AOS.init({
+                duration: 800,
+                once: false,
+                mirror: true, 
+                offset: 100,
+                easing: 'ease-out-cubic'
+            });
+
+            // 4. GSAP Loader & Intro Animations
+            gsap.registerPlugin(ScrollTrigger);
+
+            const tlLoader = gsap.timeline();
+            
+            tlLoader.to('.loader-line', { width: '100%', duration: 1.5, ease: 'power3.inOut' })
+                    .to('.loader-text', { opacity: 1, duration: 0.5 }, "-=0.5")
+                    .to('.loader', { yPercent: -100, duration: 1, ease: 'power4.inOut', delay: 0.5 })
+                    .from('.nav-container', { y: -50, opacity: 0, duration: 0.8 }, "-=0.5")
+                    .from('.hero-content > *', { y: 30, opacity: 0, duration: 0.8, stagger: 0.1 }, "-=0.5");
+
+            // Scroll Progress Bar
+            gsap.to('.scroll-progress', {
+                width: '100%',
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: 'body',
+                    start: 'top top',
+                    end: 'bottom bottom',
+                    scrub: 0.3
+                }
+            });
+
+            // 5. Swiper Initialization
+            const swiper = new Swiper('.product-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                breakpoints: {
+                    640: { slidesPerView: 2 },
+                    1024: { slidesPerView: 3 }
+                }
+            });
+
+            // 6. Chart.js Implementations
+            const ctxMarket = document.getElementById('marketGrowthChart').getContext('2d');
+            new Chart(ctxMarket, {
+                type: 'bar',
+                data: {
+                    labels: ['2025', '2026', '2027', '2028', '2029', '2030'],
+                    datasets: [
+                        {
+                            label: 'Egypt eCom ($M)',
+                            data: [300, 350, 420, 500, 600, 750],
+                            backgroundColor: 'rgba(255, 107, 53, 0.85)',
+                            borderRadius: 6
+                        },
+                        {
+                            label: 'KSA eCom ($M)',
+                            data: [800, 950, 1150, 1350, 1500, 1780],
+                            backgroundColor: 'rgba(216, 30, 91, 0.85)',
+                            borderRadius: 6
+                        }
+                    ]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { labels: { color: '#B0B0B0' } }
+                    },
+                    scales: {
+                        y: { grid: { color: 'rgba(255,255,255,0.08)' }, ticks: { color: '#B0B0B0' } },
+                        x: { grid: { display: false }, ticks: { color: '#B0B0B0' } }
+                    }
+                }
+            });
+
+            const ctxBudget = document.getElementById('budgetChart').getContext('2d');
+            new Chart(ctxBudget, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Meta Ads (35%)', 'TikTok/Snap (30%)', 'Influencers (15%)', 'Google Search (10%)', 'Retention/WhatsApp (10%)'],
+                    datasets: [{
+                        data: [35, 30, 15, 10, 10],
+                        backgroundColor: [
+                            '#1877F2',
+                            '#F9F9F9',
+                            '#FFFC00',
+                            '#34A853',
+                            '#25D366'
+                        ],
+                        borderWidth: 0,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'right', labels: { color: '#B0B0B0', font: { size: 12 } } }
+                    },
+                    cutout: '70%'
+                }
+            });
+
+            // 7. CountUp.js on Scroll
+            const initCounters = () => {
+                const options = { duration: 2.5, useEasing: true };
+                const revCount = new countUp.CountUp('metric-rev', 150, options);
+                const cacCount = new countUp.CountUp('metric-cac', 25, options);
+                const retCount = new countUp.CountUp('metric-ret', 35, options);
+                const viewsCount = new countUp.CountUp('metric-views', 10, options);
+
+                let started = false;
+
+                ScrollTrigger.create({
+                    trigger: ".metrics-grid",
+                    start: "top 80%",
+                    onEnter: () => {
+                        if (!started) {
+                            if (!revCount.error) revCount.start();
+                            if (!cacCount.error) cacCount.start();
+                            if (!retCount.error) retCount.start();
+                            if (!viewsCount.error) viewsCount.start();
+                            started = true;
+                        }
+                    },
+                    onLeaveBack: () => {
+                        revCount.reset();
+                        cacCount.reset();
+                        retCount.reset();
+                        viewsCount.reset();
+                        started = false;
+                    }
+                });
+            };
+
+            // 8. Executive Report Nav Scroll Spy & Slide Counter
+            const reportSections = document.querySelectorAll('section[id]');
+            const secPills = document.querySelectorAll('.sec-pill');
+            const slideIndicator = document.getElementById('slide-indicator');
+            const progressFill = document.getElementById('reportProgress');
+
+            function updateReportSpy() {
+                const scrollY = window.scrollY;
+                const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = (scrollY / totalHeight) * 100;
+                if (progressFill) progressFill.style.width = `${Math.min(100, Math.max(0, progress))}%`;
+
+                let currentSectionIdx = 0;
+                reportSections.forEach((sec, idx) => {
+                    const top = sec.offsetTop - 200;
+                    const height = sec.offsetHeight;
+                    if (scrollY >= top) {
+                        currentSectionIdx = idx;
+                    }
+                });
+
+                secPills.forEach((pill, idx) => {
+                    if (idx === currentSectionIdx) {
+                        pill.classList.add('active');
+                    } else {
+                        pill.classList.remove('active');
+                    }
+                });
+
+                if (slideIndicator && reportSections.length > 0) {
+                    const padCurr = String(currentSectionIdx + 1).padStart(2, '0');
+                    const padTotal = String(reportSections.length).padStart(2, '0');
+                    slideIndicator.textContent = `${padCurr} / ${padTotal}`;
+                }
+            }
+
+            window.addEventListener('scroll', updateReportSpy, { passive: true });
+            lenis.on('scroll', updateReportSpy);
+            updateReportSpy();
+
+            setTimeout(initCounters, 1000);
+
+        });
+    </script>
+</body>
+</html>
