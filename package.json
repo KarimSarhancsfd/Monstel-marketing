@@ -5,9 +5,7 @@
   "main": "index.html",
   "scripts": {
     "start": "serve .",
-    "dev": "serve .",
-    "build": "echo 'Static build step - no build required'",
-    "lint": "echo 'Linting HTML - OK'"
+    "dev": "serve ."
   },
   "devDependencies": {
     "serve": "^14.2.1"
