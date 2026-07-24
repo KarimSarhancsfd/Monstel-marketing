@@ -1,0 +1,23 @@
+{
+  "name": "monstel-hair-care-presentation",
+  "version": "1.0.0",
+  "description": "MONSTEL | Strategic Growth & Regional Expansion Plan Presentation",
+  "main": "index.html",
+  "scripts": {
+    "start": "serve .",
+    "dev": "serve .",
+    "build": "echo 'Static build step - no build required'",
+    "lint": "echo 'Linting HTML - OK'"
+  },
+  "devDependencies": {
+    "serve": "^14.2.1"
+  },
+  "keywords": [
+    "monstel",
+    "marketing",
+    "presentation",
+    "vercel"
+  ],
+  "author": "",
+  "license": "ISC"
+}

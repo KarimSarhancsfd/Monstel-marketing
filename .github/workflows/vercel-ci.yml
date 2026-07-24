@@ -1,0 +1,31 @@
+name: Vercel Deployment & Integration CI
+
+on:
+  push:
+    branches: [ master, main ]
+  pull_request:
+    branches: [ master, main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Validate vercel.json Syntax
+        run: node -e "JSON.parse(require('fs').readFileSync('vercel.json'))"
+
+      - name: Validate package.json Syntax
+        run: node -e "JSON.parse(require('fs').readFileSync('package.json'))"
+
+      - name: Check Critical Files
+        run: |
+          test -f index.html || (echo "index.html is missing" && exit 1)
+          test -d background-frames || (echo "background-frames directory is missing" && exit 1)
+          echo "All critical static files present."
