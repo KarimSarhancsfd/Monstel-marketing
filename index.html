@@ -435,7 +435,7 @@
         .hero-title { font-size: 4rem; margin-bottom: 1.5rem; }
         .hero-subtitle { font-size: 1.2rem; color: var(--text-gray); margin-bottom: 2rem; }
         .hero-visual { position: relative; }
-        .hero-image { width: 100%; border-radius: var(--radius-lg); object-fit: cover; height: 500px; }
+        .hero-image { width: 100%; border-radius: var(--radius-lg); object-fit: contain; height: 500px; padding: 2rem; filter: drop-shadow(0 15px 35px rgba(0,0,0,0.6)); background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); }
         .floating-card {
             position: absolute; display: flex; align-items: center; gap: 10px; padding: 1rem;
             font-size: 0.9rem; z-index: 5;
@@ -452,7 +452,7 @@
 
         /* Split Section */
         .split-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
-        .rounded-image { width: 100%; border-radius: var(--radius-lg); }
+        .rounded-image { width: 100%; border-radius: var(--radius-lg); object-fit: contain; max-height: 480px; padding: 2rem; filter: drop-shadow(0 15px 35px rgba(0,0,0,0.6)); background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); }
 
         /* Market Cards */
         .market-header { display: flex; align-items: center; gap: 10px; margin-bottom: 1rem; }
@@ -474,7 +474,7 @@
 
         /* Personas */
         .avatar-circle { width: 80px; height: 80px; border-radius: 50%; overflow: hidden; margin: 0 auto 1rem; border: 2px solid var(--primary-fuchsia); }
-        .avatar-circle img { width: 100%; height: 100%; object-fit: cover; }
+        .avatar-circle img { width: 100%; height: 100%; object-fit: contain; padding: 10px; background: rgba(255,255,255,0.05); }
         .persona-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem; }
 
         /* Journey Timeline */
@@ -491,7 +491,8 @@
 
         /* Swiper */
         .product-swiper { padding-bottom: 50px; }
-        .prod-img-placeholder { height: 180px; background: rgba(255,255,255,0.05); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-gray); }
+        .prod-img-placeholder { height: 180px; background: rgba(255,255,255,0.03); border: 1px solid var(--glass-border); border-radius: var(--radius-md); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin-bottom: 1rem; color: var(--text-gray); padding: 0.8rem; overflow: hidden; }
+        .prod-img-placeholder img { max-height: 100%; max-width: 100%; object-fit: contain; filter: drop-shadow(0 8px 16px rgba(0,0,0,0.4)); }
 
         /* Channels */
         .channel-icon { font-size: 2.5rem; color: var(--primary-fuchsia); margin-bottom: 1rem; display: inline-block; }
@@ -701,7 +702,7 @@
                 </div>
             </div>
             <div class="hero-visual" data-aos="zoom-in" data-aos-duration="1500">
-                <img src="https://images.unsplash.com/photo-1522337660859-02fbefca4702?q=80&w=1000&auto=format&fit=crop" alt="Luxury Beauty Model Healthy Hair" class="hero-image">
+                <img src="assets/Screenshot__201_-removebg-preview.png" alt="Monstel Clinical Haircare Product" class="hero-image">
                 <div class="floating-card fc-1 glass-card">
                     <i class="bi bi-graph-up-arrow text-gradient"></i>
                     <span>$7.55B MENA Haircare Market</span>
@@ -773,7 +774,7 @@
                     </ul>
                 </div>
                 <div class="split-visual" data-aos="fade-left">
-                    <img src="https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?q=80&w=800&auto=format&fit=crop" alt="Premium Haircare Flatlay" class="rounded-image shadow-premium">
+                    <img src="assets/monstel-blue-removebg-preview.png" alt="Monstel Shampoo & Scalp Care" class="rounded-image shadow-premium">
                 </div>
             </div>
         </div>
@@ -978,17 +979,17 @@
 
             <div class="grid-3 mb-5">
                 <div class="glass-card text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="avatar-circle"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=200&auto=format&fit=crop" alt="Tier 1"></div>
+                    <div class="avatar-circle"><img src="assets/monstel yellow.png" alt="Monstel Product Tier 1"></div>
                     <h3>Tier 1: Post-Partum & Stress</h3>
                     <p class="text-sm text-gray">Women 25-40. Seeking immediate, safe, Minoxidil-free solutions for shedding.</p>
                 </div>
                 <div class="glass-card text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="avatar-circle"><img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?q=80&w=200&auto=format&fit=crop" alt="Tier 2"></div>
+                    <div class="avatar-circle"><img src="assets/Screenshot__203_-removebg-preview.png" alt="Monstel Product Tier 2"></div>
                     <h3>Tier 2: Damage Repair</h3>
                     <p class="text-sm text-gray">Women 18-35. Suffering from heat, chlorine, and hard water. Needs Keratin & Ceramide.</p>
                 </div>
                 <div class="glass-card text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div class="avatar-circle"><img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop" alt="Tier 3"></div>
+                    <div class="avatar-circle"><img src="assets/monstel-blue-removebg-preview.png" alt="Monstel Product Tier 3"></div>
                     <h3>Tier 3: Genetic Thinning</h3>
                     <p class="text-sm text-gray">Men & Women 30-50. Looking for clinical-strength growth oils to fill gaps.</p>
                 </div>
@@ -1379,31 +1380,31 @@
             <div class="swiper product-swiper" data-aos="fade-up" data-aos-delay="200">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide glass-card">
-                        <div class="prod-img-placeholder">Growth Oils</div>
+                        <div class="prod-img-placeholder"><img src="assets/Screenshot__203_-removebg-preview.png" alt="Growth Oils"></div>
                         <h3>Growth/Lengthening Oils</h3>
                         <p class="text-gradient fw-bold">Anchor Product</p>
                         <p class="text-sm text-gray mt-2"><strong>Angle:</strong> "The 3-Month Genetic Baldness Reversal." High margin.</p>
                     </div>
                     <div class="swiper-slide glass-card">
-                        <div class="prod-img-placeholder">Shampoo</div>
+                        <div class="prod-img-placeholder"><img src="assets/monstel-blue-removebg-preview.png" alt="Shampoo"></div>
                         <h3>Shampoo</h3>
                         <p class="text-gradient fw-bold">TOFU Entry</p>
                         <p class="text-sm text-gray mt-2"><strong>Angle:</strong> "Sulfate-free scalp detox with Biotin & Aziron."</p>
                     </div>
                     <div class="swiper-slide glass-card">
-                        <div class="prod-img-placeholder">Ceramide</div>
+                        <div class="prod-img-placeholder"><img src="assets/monstel yellow.png" alt="Ceramide Protein"></div>
                         <h3>Ceramide Protein</h3>
                         <p class="text-gradient fw-bold">Viral Hero</p>
                         <p class="text-sm text-gray mt-2"><strong>Angle:</strong> "Cold-straightening in seconds." Highly visual for TikTok.</p>
                     </div>
                     <div class="swiper-slide glass-card">
-                        <div class="prod-img-placeholder">Keratin</div>
+                        <div class="prod-img-placeholder"><img src="assets/Screenshot__201_-removebg-preview.png" alt="Keratin Serum"></div>
                         <h3>Keratin Serum</h3>
                         <p class="text-gradient fw-bold">Summer Hero</p>
                         <p class="text-sm text-gray mt-2"><strong>Angle:</strong> "The invisible shield against heat and swimming pools."</p>
                     </div>
                     <div class="swiper-slide glass-card">
-                        <div class="prod-img-placeholder">Mask</div>
+                        <div class="prod-img-placeholder"><img src="assets/monstel yellow.png" alt="Shea Butter Mask"></div>
                         <h3>Shea Butter Mask</h3>
                         <p class="text-gradient fw-bold">Hydration Focus</p>
                         <p class="text-sm text-gray mt-2"><strong>Angle:</strong> "Deep hydration for Hijab-friction and split ends."</p>
