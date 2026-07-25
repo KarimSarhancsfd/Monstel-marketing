@@ -603,6 +603,18 @@
             transform: translateY(-2px);
         }
 
+        @media (max-width: 1024px) {
+            .container { width: 92%; }
+            .section-padding { padding: 75px 0; }
+            .hero-title { font-size: 3.2rem; }
+            .section-title { font-size: 2.4rem; }
+            .grid-4 { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+            .grid-3 { grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+            .floating-card.fc-1 { left: 0; top: 5%; }
+            .floating-card.fc-2 { right: 0; bottom: 5%; }
+            .report-section-pills { max-width: 55vw; }
+        }
+
         @media (max-width: 992px) {
             .final-stage-grid {
                 grid-template-columns: 1fr;
@@ -613,6 +625,108 @@
                 justify-self: center;
                 max-width: 100%;
             }
+        }
+
+        @media (max-width: 768px) {
+            .section-padding { padding: 50px 0; }
+            
+            /* Responsive Hero Section */
+            .hero-section {
+                height: auto;
+                min-height: 100vh;
+                padding-top: 130px;
+                padding-bottom: 50px;
+            }
+            .hero-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+                text-align: center;
+            }
+            .badge { margin: 0 auto 1rem; }
+            .hero-title { font-size: 2.2rem; line-height: 1.25; }
+            .hero-subtitle { font-size: 1.05rem; margin-bottom: 1.5rem; }
+            .hero-visual { margin-top: 1rem; }
+            .hero-image { height: 320px; padding: 1rem; }
+            .floating-card {
+                position: relative;
+                top: auto !important;
+                bottom: auto !important;
+                left: auto !important;
+                right: auto !important;
+                margin: 10px auto;
+                width: 100%;
+                max-width: 320px;
+                justify-content: center;
+                animation: none !important;
+            }
+
+            /* Responsive Navigation Header */
+            .report-meta-strip {
+                font-size: 0.65rem;
+                padding: 0.25rem 3%;
+                justify-content: center;
+            }
+            .meta-author, .meta-doc-id, .meta-divider { display: none; }
+            .report-header-container {
+                padding: 0.5rem 3%;
+                gap: 0.5rem;
+            }
+            .doc-subtitle { display: none; }
+            .report-section-pills {
+                max-width: 100%;
+                flex-grow: 1;
+                padding: 0.2rem;
+            }
+            .sec-pill { padding: 0.25rem 0.5rem; font-size: 0.7rem; }
+            .slide-indicator { display: none; }
+            .btn-report-execute { padding: 0.4rem 0.8rem; font-size: 0.75rem; }
+
+            /* Grid Layouts Stack Vertically */
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+            }
+            .split-layout {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .swot-grid, .kpi-grid, .metrics-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+
+            /* Headings & Typography */
+            .section-title { font-size: 1.9rem; }
+            .section-desc { font-size: 1rem; margin-bottom: 2rem; }
+            .glass-card { padding: 1.25rem; border-radius: var(--radius-md); }
+
+            /* Timelines & Cards */
+            .timeline-flex {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.25rem;
+            }
+            .timeline-step { width: 100%; }
+            .timeline-connector {
+                width: 2px;
+                height: 24px;
+                margin: 0 auto;
+            }
+            .rounded-image { max-height: 320px; padding: 1rem; }
+            .prod-img-placeholder { height: 150px; }
+            .chart-container { height: 260px; }
+            .chart-container-pie { height: 200px; }
+        }
+
+        @media (max-width: 480px) {
+            .container { width: 94%; }
+            .hero-title { font-size: 1.8rem; }
+            .section-title { font-size: 1.6rem; }
+            .brand-name { font-size: 1rem; letter-spacing: 1px; }
+            .btn-report-execute { font-size: 0.7rem; padding: 0.35rem 0.6rem; }
+            .hero-image { height: 250px; padding: 0.8rem; }
+            .rounded-image { max-height: 250px; padding: 0.8rem; }
+            .loader-logo { font-size: 2.2rem; }
         }
     </style>
 </head>
